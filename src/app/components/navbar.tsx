@@ -1,6 +1,6 @@
 "use client";
 import Image from "next/image";
-import Link from "next/link"; 
+import Link from "next/link";
 import user from "@/images/Vector (12).png";
 import search from "@/images/icn settings icn-xs (6).png";
 import cart from "@/images/icn settings icn-xs (7).png";
@@ -10,6 +10,7 @@ import { useState } from "react";
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
+  // Toggle the mobile menu
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
 
   return (
@@ -24,7 +25,6 @@ export default function Navbar() {
           <li><Link href="/">Home</Link></li>
           <li><Link href="/shop">Shop</Link></li>
           <li><Link href="/about">About</Link></li>
-          <li><Link href="/blog">Blog</Link></li>
           <li><Link href="/contact">Contact</Link></li>
           <li><Link href="/pages">Pages</Link></li>
         </ul>
@@ -45,7 +45,13 @@ export default function Navbar() {
 
         {/* Hamburger Menu for Mobile */}
         <div className="md:hidden flex items-center">
-          <button onClick={toggleMenu} className="text-[#252B42]">
+          <button
+            onClick={toggleMenu}
+            className="text-[#252B42]"
+            aria-expanded={isMenuOpen ? "true" : "false"}
+            aria-controls="mobile-menu"
+            aria-label="Toggle navigation menu"
+          >
             <svg
               className="w-6 h-6"
               fill="none"
@@ -66,20 +72,27 @@ export default function Navbar() {
 
       {/* Mobile Menu Dropdown */}
       {isMenuOpen && (
-        <div className="bg-[#bebebe] text-white flex flex-col items-center py-4 space-y-3">
+        <div
+          id="mobile-menu"
+          className="bg-[#bebebe] text-white flex flex-col items-center py-4 space-y-3"
+        >
           <ul className="space-y-2 font-Montserrat text-base text-black">
             <li><Link href="/">Home</Link></li>
             <li><Link href="/shop">Shop</Link></li>
             <li><Link href="/about">About</Link></li>
-            <li><Link href="/blog">Blog</Link></li>
             <li><Link href="/contact">Contact</Link></li>
             <li><Link href="/pages">Pages</Link></li>
           </ul>
-          <button onClick={toggleMenu} className="text-sm text-black font-Montserrat">
-           - Close Menu -
+          <button
+            onClick={toggleMenu}
+            className="text-sm text-black font-Montserrat"
+            aria-label="Close mobile menu"
+          >
+            - Close Menu -
           </button>
         </div>
       )}
     </nav>
   );
 }
+

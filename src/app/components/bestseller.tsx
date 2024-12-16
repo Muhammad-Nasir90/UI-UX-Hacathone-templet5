@@ -27,96 +27,35 @@ export default function Bestseller() {
           {/* Line under the heading */}
           <div className="w-full h-[2px] bg-[#dbdbdb]"></div>
           {/* Products Section */}
-          <div className="flex lg:flex-row gap-[30px] flex-col lg:ml-[0px] ml-[100px]">
-            {/* Card 1 */}
-            <div className="w-[238px] lg:w-[238px] sm:w-full h-full mt-[10px] flex flex-col bg-[#FFFFFF] shadow-lg">
-              <div className="flex-grow">
-                <Image src={pic6} alt="pic" className="w-full h-full object-cover" />
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-[30px] mt-[30px]">
+            {/* Product Cards */}
+            {[pic6, pic1, pic2, pic3, pic4, pic5, pic6, pic1].map((pic, index) => (
+              <div key={index} className="w-[238px] h-full flex flex-col bg-[#FFFFFF] shadow-lg">
+                <div className="flex-grow">
+                  <Image src={pic} alt={`product${index + 1}`} className="w-full h-full object-cover" />
+                </div>
+                <CardT2 />
               </div>
-              <CardT2 />
-            </div>
-            {/* Card 2 */}
-            <div className="w-[238px] lg:w-[238px] sm:w-full h-full mt-[10px] flex flex-col bg-[#FFFFFF] shadow-lg">
-              <div className="flex-grow">
-                <Image src={pic1} alt="pic" className="w-full h-full object-cover" />
-              </div>
-              <CardT2 />
-            </div>
-            {/* Card 3 */}
-            <div className="w-[238px] lg:w-[238px] sm:w-full h-full mt-[10px] flex flex-col bg-[#FFFFFF] shadow-lg">
-              <div className="flex-grow">
-                <Image src={pic2} alt="pic" className="w-full h-full object-cover" />
-              </div>
-              <CardT2 />
-            </div>
-            {/* Card 4 */}
-            <div className="w-[238px] lg:w-[238px] sm:w-full h-full mt-[10px] flex flex-col bg-[#FFFFFF] shadow-lg">
-              <div className="flex-grow">
-                <Image src={pic3} alt="pic" className="w-full h-full object-cover" />
-              </div>
-              <CardT2 />
-            </div>
-          </div>
-          {/* Second Row */}
-          <div className="flex lg:flex-row gap-[30px] flex-col lg:ml-[0px] ml-[100px]">
-            {/* Card 5 */}
-            <div className="w-[238px] lg:w-[238px] sm:w-full h-full mt-[10px] flex flex-col bg-[#FFFFFF] shadow-lg">
-              <div className="flex-grow">
-                <Image src={pic4} alt="pic" className="w-full h-full object-cover" />
-              </div>
-              <CardT2 />
-            </div>
-            {/* Card 6 */}
-            <div className="w-[238px] lg:w-[238px] sm:w-full h-full mt-[10px] flex flex-col bg-[#FFFFFF] shadow-lg">
-              <div className="flex-grow">
-                <Image src={pic5} alt="pic" className="w-full h-full object-cover" />
-              </div>
-              <CardT2 />
-            </div>
-            {/* Card 7 */}
-            <div className="w-[238px] lg:w-[238px] sm:w-full h-full mt-[10px] flex flex-col bg-[#FFFFFF] shadow-lg">
-              <div className="flex-grow">
-                <Image src={pic6} alt="pic" className="w-full h-full object-cover" />
-              </div>
-              <CardT2 />
-            </div>
-            {/* Card 8 */}
-            <div className="w-[238px] lg:w-[238px] sm:w-full h-full mt-[10px] flex flex-col bg-[#FFFFFF] shadow-lg">
-              <div className="flex-grow">
-                <Image src={pic1} alt="pic" className="w-full h-full object-cover" />
-              </div>
-              <CardT2 />
-            </div>
+            ))}
           </div>
         </div>
       </div>
-    {/* Companies */}
-<div className="w-full bg-[#FAFAFA] py-8">
-  <div className="max-w-[1124px] mx-auto">
-    {/* Logo Grid */}
-    <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-8">
-      <div className="flex justify-center">
-        <Image src={cm1} alt="Client 1 Logo" className="h-12 w-auto" />
-      </div>
-      <div className="flex justify-center">
-        <Image src={cm2} alt="Client 2 Logo" className="h-12 w-auto" />
-      </div>
-      <div className="flex justify-center">
-        <Image src={cm3} alt="Client 3 Logo" className="h-12 w-auto" />
-      </div>
-      <div className="flex justify-center">
-        <Image src={cm4} alt="Client 4 Logo" className="h-12 w-auto" />
-      </div>
-      <div className="flex justify-center">
-        <Image src={cm5} alt="Client 5 Logo" className="h-12 w-auto" />
-      </div>
-      <div className="flex justify-center">
-        <Image src={cm6} alt="Client 6 Logo" className="h-12 w-auto" />
-      </div>
-    </div>
-  </div>
-</div>
 
+      {/* Companies Section */}
+      <div className="w-full bg-[#FAFAFA] py-8">
+        <div className="max-w-[1124px] mx-auto">
+          {/* Logo Grid */}
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-8">
+            {[cm1, cm2, cm3, cm4, cm5, cm6].map((logo, index) => (
+              <div key={index} className="flex justify-center">
+                <Image src={logo} alt={`Client Logo ${index + 1}`} className="h-12 w-auto" />
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
     </div>
   );
 }
+
+

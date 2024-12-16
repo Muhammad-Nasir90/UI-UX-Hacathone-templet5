@@ -32,11 +32,21 @@ export default function ProductCard() {
           {[picture1, pic2, pic3, pic4, pic5, pic6, pic7, pic8].map(
             (pic, index) => (
               <div key={index} className="w-[238px] h-[615px] mx-auto">
-                <div className="w-full h-full">
-                  <div className="w-[239px] h-[427px]">
-                    <Image src={pic} alt={`picture${index + 1}`} />
+                <div className="w-full h-full bg-white rounded-lg shadow-lg overflow-hidden">
+                  {/* Image Section */}
+                  <div className="w-full h-[427px] relative">
+                    <Image
+                      src={pic}
+                      alt={`product image ${index + 1}`}
+                      width={239}
+                      height={427}
+                      className="object-cover rounded-t-lg"
+                    />
                   </div>
-                  <CardText />
+                  {/* Card Text Section */}
+                  <div className="p-6">
+                    <CardText />
+                  </div>
                 </div>
               </div>
             )
@@ -46,3 +56,5 @@ export default function ProductCard() {
     </div>
   );
 }
+
+
