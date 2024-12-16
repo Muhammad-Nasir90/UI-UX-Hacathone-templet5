@@ -16,6 +16,7 @@ export default function Home() {
   const [isClient, setIsClient] = useState(false);
 
   // Ensuring that any browser-dependent code is run only on the client
+  
   useEffect(() => {
     setIsClient(true);
   }, []);
